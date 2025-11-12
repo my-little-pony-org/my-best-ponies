@@ -28,7 +28,7 @@ jobs:
       ENVIRONMENT: ${{ inputs.environment }}
     steps:
      - name: "${{ matrix.os }} - ${{ matrix.version }}"
-     - run: |
+       run: |
           echo "Log level: $LEVEL"
           echo "Tags: $TAGS"
           echo "Environment: $ENVIRONMENT"
