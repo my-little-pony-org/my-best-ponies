@@ -2,9 +2,10 @@ on:
   workflow_dispatch:
 env:
   cat_name: "Puszek"
+  env_var: "${{ env.ENVIRONMENT_VAR }}"
 jobs:
   display-variables:
-    name: "${{ env.ENVIRONMENT_VAR }}"
+    name: "$env_var"
     runs-on: ubuntu-latest
     steps:
     - name: Use variables 1
