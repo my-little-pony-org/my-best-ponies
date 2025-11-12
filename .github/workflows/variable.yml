@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 env:
   cat_name: "Puszek"
-  env_var: ${{ env.ENVIRONMENT_VAR }}
+  env_var: ${{ vars.ENVIRONMENT_VAR }}
 jobs:
   display-variables:
     name: $env_var
