@@ -21,18 +21,21 @@ jobs:
         
   producer:
     runs-on: ubuntu-latest
+    outputs:
+      sentence: ${{ steps.sentence_maker.outputs.message }}
     steps:
       - name: Make a sentence
         id: sentence_maker
         run: |
-            # USTAW ZMIENNĄ ŚRODOWISKOWĄ
+          echo "message=my name is luka" >> "$GITHUB_OUTPUT"
 
   consumer:
     runs-on: ubuntu-latest
+    needs: producer
     steps:
       - name: Print the message
         run: |
-          echo $message
+          echo ${{ needs.producer.outputs.sentence }}
 
   job_1:
     name: Add 3 and 7
