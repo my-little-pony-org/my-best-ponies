@@ -2,7 +2,7 @@ on:
   workflow_dispatch:
 env:
   cat_name: "Puszek"
-  env_var: "${{ env.ENVIRONMENT_VAR }}"
+  env_var: "${{ vars.ENVIRONMENT_VAR }}"
 jobs:
   display-variables:
     name: "$env_var"
@@ -12,7 +12,7 @@ jobs:
       run: |
         echo "Repository variable : ${{ vars.REPOSITORY_VAR }}"
         echo "Organization variable : ${{ vars.ORGANIZATION_VAR }}"
-        echo "Environment variable : ${{ env.ENVIRONMENT_VAR }}"
+        echo "Environment variable : $env_var"
         echo "Ala ma kota o nazwie $cat_name"
         echo "Powinna być zmienna w scopie workflow:$WORKFLOW_VAR"
         echo "Powinna być zmienna w scopie joba:$JOB_VAR"
